@@ -7,10 +7,16 @@ st.set_page_config(page_title="Roadmap Dashboard", layout="wide")
 
 # --- LOAD DATA ---
 @st.cache_data
+# --- LOAD DATA ---
+@st.cache_data
 def load_data():
-    # This reads the file from the SAME folder as the script
-    # Ensure your file is named 'Roadmap_Monitoring_System_2.xlsx' in the repository
+    # 1. Read the Excel file
     df = pd.read_excel("Roadmap_Monitoring_System_2.xlsx")
+    
+    # 2. THE FIX: Force all columns to lowercase and remove spaces
+    # This turns "Department " -> "department" and "Status" -> "status"
+    df.columns = df.columns.str.strip().str.lower()
+    
     return df
 
 try:
