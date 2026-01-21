@@ -1,3 +1,4 @@
+# import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -5,8 +6,7 @@ import plotly.express as px
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Roadmap Dashboard", layout="wide")
 
-# --- LOAD DATA ---
-@st.cache_data
+
 # --- LOAD DATA ---
 @st.cache_data
 def load_data():
